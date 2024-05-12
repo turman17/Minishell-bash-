@@ -43,6 +43,24 @@ Run the shell by executing:
 ./minishell
 ```
 
-## Authors
+Once running, you can execute commands as you would in any other shell.
 
-- **[Your Name]** - *Initial work* - [turman17](https://github.com/turman17)
+### Complex Command Examples
+
+1. **Advanced Pipe Usage:**
+   Filter and sort error messages from a log file:
+   ```bash
+   cat /var/log/syslog | grep 'error' | sort | uniq -c | sort -nr
+   ```
+
+2. **Handling Multiple Redirections and File Descriptors:**
+   Compile a program, handling output and errors separately:
+   ```bash
+   gcc main.c -o main.out 2>errors.log >compile.log
+   ```
+
+3. **Complex Command with Subshells and Variable Expansion:**
+   Count backup files created today:
+   ```bash
+   echo "Backup files count: $(ls -l backup_$(date +%Y%m%d)*.tar.gz | wc -l)"
+   ```
